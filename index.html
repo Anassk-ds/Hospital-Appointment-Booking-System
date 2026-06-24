@@ -4,95 +4,239 @@
     <title>City Care Hospital</title>
 
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+:root{
+    --hospital-color:#0066cc;
+    --accent-color:#00b894;
+    --text-color:#333;
+    --border-color:#dcdde1;
+}
 
-        body{
-            font-family:Arial, sans-serif;
-            background:#f4f4f4;
-            line-height:1.6;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        header{
-            background:#0066cc;
-            color:white;
-            text-align:center;
-            padding:20px;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            margin:15px;
-            font-weight:bold;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f7fb;
+    color:var(--text-color);
+    line-height:1.6;
+}
 
-        section{
-            background:white;
-            margin:20px;
-            padding:20px;
-            border-radius:10px;
-        }
+/* Header */
+header{
+    background-image:url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
 
-        h2{
-            color:#0066cc;
-            margin-bottom:10px;
-        }
+header h1{
+    background:rgba(0,0,0,0.5);
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:10px;
+}
 
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
+/* Navigation */
+nav{
+    margin-top:20px;
+}
 
-        table,th,td{
-            border:1px solid black;
-        }
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    padding:10px 15px;
+    border:2px solid transparent;
+    transition:all 0.4s ease;
+}
 
-        th{
-            background:#0066cc;
-            color:white;
-        }
+nav a:hover{
+    background:white;
+    color:var(--hospital-color);
+    border-radius:5px;
+    border-color:white;
+}
 
-        th,td{
-            padding:10px;
-            text-align:center;
-        }
+/* Sections */
+section{
+    background:white;
+    margin:20px auto;
+    max-width:1100px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
 
-        input,select,textarea{
-            width:100%;
-            padding:10px;
-            margin-top:5px;
-            margin-bottom:10px;
-            border:1px solid #ccc;
-            border-radius:5px;
-        }
+section:hover{
+    transform:translateY(-5px);
+}
 
-        input[type="submit"]{
-            background:#0066cc;
-            color:white;
-            border:none;
-            cursor:pointer;
-        }
+h2{
+    color:var(--hospital-color);
+    margin-bottom:15px;
+}
 
-        .emergency{
-            background:#ffe5e5;
-            color:red;
-            font-weight:bold;
-            text-align:center;
-        }
+/* Doctors Table */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
 
-        audio,video,iframe{
-            margin-top:10px;
-        }
+table,th,td{
+    border:1px solid var(--border-color);
+}
 
-        footer{
-            background:#0066cc;
-            color:white;
-            text-align:center;
-            padding:15px;
+th{
+    background:var(--hospital-color);
+    color:white;
+}
+
+th,td{
+    padding:12px;
+    text-align:center;
+}
+
+tr{
+    transition:0.4s;
+}
+
+tr:hover{
+    background:#eef8ff;
+    transform:scale(1.01);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+/* Appointment Form Animation */
+#appointment{
+    animation:slideFade 1s ease;
+}
+
+@keyframes slideFade{
+    from{
+        opacity:0;
+        transform:translateX(-100px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:5px;
+    margin-bottom:12px;
+    border:1px solid var(--border-color);
+    border-radius:6px;
+    transition:0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--hospital-color);
+    outline:none;
+}
+
+/* Buttons */
+input[type="submit"]{
+    background:var(--hospital-color);
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+input[type="submit"]:hover{
+    background:var(--accent-color);
+    transform:scale(1.05);
+}
+
+/* Emergency Animation */
+.emergency{
+    background:#ffe5e5;
+    color:red;
+    text-align:center;
+    font-weight:bold;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+        background:#ffcccc;
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* Multimedia */
+audio,
+video,
+iframe{
+    margin-top:15px;
+    width:100%;
+    border-radius:10px;
+}
+
+/* Footer */
+footer{
+    background:var(--hospital-color);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Mobile */
+@media(max-width:767px){
+
+    nav a{
+        display:block;
+        margin:10px 0;
+    }
+
+    table{
+        font-size:12px;
+    }
+
+    header{
+        padding:50px 10px;
+    }
+}
+
+/* Tablet */
+@media(min-width:768px) and (max-width:1024px){
+
+    section{
+        margin:15px;
+    }
+}
+
+/* Desktop */
+@media(min-width:1025px){
+
+    section{
+        max-width:1100px;
+    }
         }
     </style>
 </head>
