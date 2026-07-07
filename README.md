@@ -1,5 +1,4 @@
 Hospital Appointment Booking System
-
 Overview
 
 The Hospital Appointment Booking System is a web-based application developed using HTML and CSS. It allows patients to view doctor information and book appointments online through a user-friendly interface.
